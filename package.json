@@ -1,0 +1,43 @@
+{
+  "name": "@nossoerp/auth-app",
+  "version": "1.0.0",
+  "description": "SDK de login dos apps do NossoERP na autenticação central (DPoP, refresh rotativo, modo legado)",
+  "license": "UNLICENSED",
+  "repository": "github:Obter-Solucoes-Tecnologicas/nossoerp-auth-app",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "default": "./dist/index.js" },
+    "./expo": { "types": "./dist/expo.d.ts", "default": "./dist/expo.js" },
+    "./package.json": "./package.json"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "jest",
+    "typecheck": "tsc --noEmit",
+    "contrato": "tsx scripts/gerar-provas-contrato.ts"
+  },
+  "dependencies": {
+    "@noble/curves": "^1.9.7",
+    "@noble/hashes": "^1.8.0"
+  },
+  "peerDependencies": {
+    "expo-crypto": ">=14",
+    "expo-secure-store": ">=14",
+    "react-native": ">=0.76"
+  },
+  "peerDependenciesMeta": {
+    "expo-crypto": { "optional": true },
+    "expo-secure-store": { "optional": true },
+    "react-native": { "optional": true }
+  },
+  "devDependencies": {
+    "@types/jest": "29.5.14",
+    "@types/node": "^20.19.0",
+    "jest": "~29.7.0",
+    "ts-jest": "^29.4.6",
+    "tsx": "^4.20.0",
+    "typescript": "~5.9.2"
+  }
+}
